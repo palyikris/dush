@@ -115,17 +115,3 @@
         font-style: italic;
     }
 }
-.topnav{
-    position: absolute;
-    top: 0;
-    z-index: 100;
-    @include centerDiv;
-    width: 95%;
-    justify-content: flex-end;
-    padding: 3vmin 0;
-    a{
-        color: $comp-color;
-        font-weight: bolder;
-        margin: 0 1vmin;
-    }
-}

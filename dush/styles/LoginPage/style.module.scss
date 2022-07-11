@@ -1,0 +1,48 @@
+@import "../uniform";
+
+.container{
+    @include centerDiv;
+    height: 100vh;
+    svg{
+        width: 10vmin;
+        color: $main-color;
+        margin: 5vmin 0;
+    }
+    form{
+        @include centerDiv;
+        background-color: $highlighter;
+        border-radius: 15px;
+        width: auto;
+        padding: 10vmin 8vmin;
+        padding-top: 5vmin;
+        flex-direction: column;
+        box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.75);
+        h1{
+            font-size: 8vmin;
+            margin: 0;
+        }
+    }
+    div{
+        @include centerDiv;
+        margin: 2vmin 0;
+        *{
+            margin: 0 2vmin;
+        }
+        label{
+            width: 15vmin;
+            color: $main-color;
+        }
+        input{
+            background-color: transparent;
+            border: 2px solid black;
+            border-radius: 5px;
+            padding: 1vmin 2vmin;
+            width: 30vmin;
+            outline: none;
+            transition: all 0.5s;
+            &:hover{
+                box-shadow: 0px 0px 10px .2px rgba($main-color,0.75);
+            }
+        }
+    }
+}
