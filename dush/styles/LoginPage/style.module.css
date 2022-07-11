@@ -13,7 +13,7 @@
 }
 
 .container svg {
-  width: 10vmin;
+  width: 15vmin;
   color: #00ff15;
   margin: 5vmin 0;
 }
@@ -79,10 +79,55 @@
   outline: none;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
+  color: #00ff15;
 }
 
 .container div input:hover {
   -webkit-box-shadow: 0px 0px 10px 0.2px rgba(0, 255, 21, 0.75);
           box-shadow: 0px 0px 10px 0.2px rgba(0, 255, 21, 0.75);
+}
+
+.container .buttons {
+  margin-top: 5vmin;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.container .buttons div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+
+.container .buttons svg {
+  width: 8vmin;
+}
+
+.container .buttons button {
+  background-color: transparent;
+  border: none;
+  width: auto;
+}
+
+.container .buttons button svg {
+  color: #FF00EA;
 }
 /*# sourceMappingURL=style.module.css.map */

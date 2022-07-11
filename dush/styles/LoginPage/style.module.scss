@@ -4,7 +4,7 @@
     @include centerDiv;
     height: 100vh;
     svg{
-        width: 10vmin;
+        width: 15vmin;
         color: $main-color;
         margin: 5vmin 0;
     }
@@ -40,8 +40,28 @@
             width: 30vmin;
             outline: none;
             transition: all 0.5s;
+            color: $main-color;
             &:hover{
                 box-shadow: 0px 0px 10px .2px rgba($main-color,0.75);
+            }
+        }
+    }
+    .buttons{
+        margin-top: 5vmin;
+        @include centerDiv;
+        justify-content: space-evenly;
+        div{
+            @include centerDiv;
+        }
+        svg{
+            width: 8vmin;
+        }
+        button{
+            background-color: transparent;
+            border: none;
+            width: auto;
+            svg{
+                color: $comp-color;
             }
         }
     }
