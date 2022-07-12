@@ -1,0 +1,98 @@
+@import "../uniform.scss";
+
+.container{
+    @include centerDiv;
+    flex-direction: column;
+    h1{
+        font-size: 10vmin;
+        font-weight: bolder;
+        span{
+            color: $main-color;
+        }
+    }
+    .cubes{
+        @include centerDiv;
+        justify-content: space-around;
+        margin: 10vmin 0;
+        .cube{
+            font-weight: bolder;
+            position: relative;
+            list-style: none;
+            width: 100%;
+            height: 3vmin;
+            padding: 3vmin;
+            background-color: #031738;
+            transition: all 0.5s;
+            @include centerDiv;
+            text-transform: uppercase;
+            letter-spacing: .5vmin;
+            width: 50vmin;
+            animation-name: hover;
+            animation-duration: 4s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            animation-fill-mode:both
+            svg{
+                width: 3vmin;
+                margin-right: 2vmin;
+                color: $main-color;
+            }
+            &:hover{
+                transform: translateY(-10px);
+                a{
+                    color: $main-color;
+                }
+            }
+            &::before{
+                content: "";
+                position: absolute;
+                width: 40px;
+                height: 100%;
+                background-color: #02122b;
+                top: 0;
+                left: -40px;
+                transform-origin: right;
+                transform: skewY(45deg);
+                transition: all 0.5s;
+            }
+            &::after{
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 40px;
+                background-color: #061631;
+                top: -40px;
+                left: 0;
+                transform-origin: bottom;
+                transform: skewX(45deg);
+                transition: all 0.5s;
+            }
+            a{
+                text-decoration: none;
+                color:#878787;
+                display: block;
+                text-transform: uppercase;
+                letter-spacing: 0.1vmin;
+                transition: all 0.5s;
+            }
+            span{
+                margin: 0 1vmin;
+            }
+        }
+    }
+    .desc{
+        width: auto;
+        max-width: 40%;
+        border-left: 2px solid $main-color;
+        @include centerDiv;
+        padding-left: 10vmin;
+    }
+}
+
+@keyframes hover {
+    0%{transform: translateY(-5px)}
+    25%{transform: translateY(0px)}
+    50%{transform: translateY(5px)}
+    75%{transform: translateY(0px)}
+    100%{transform: translateY(-5px)}
+}

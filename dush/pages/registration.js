@@ -1,7 +1,7 @@
 import Form from "../components/Form";
 import InputField from "../components/InputField";
 import UniHead from "../components/UniHead";
-import styles from "../styles/LoginPage/style.module.css";
+import styles from "../styles/Registration/style.module.css";
 import Button from "../ui/Button"; 
 import { useRef } from "react";
 import { useRouter } from "next/router"
@@ -12,7 +12,7 @@ import { useRouter } from "next/router"
 
 
 
-export default function LoginPage(){
+export default function RegistrationPage(){
 
     let email = useRef();
     let password = useRef();
@@ -53,11 +53,8 @@ export default function LoginPage(){
             password.current.style.border = "2px solid red"
         }
         else{
-            let authToken = makeToken(20);
-
-
+    
             let users = []
-            let currentUser = null
 
             fetch("https://theonedush-default-rtdb.europe-west1.firebasedatabase.app/users.json")
             .then(response => {
@@ -69,49 +66,53 @@ export default function LoginPage(){
                         id: key,
                         userData : data[key],
                     }
-                    users.push(user);
+                    users.push(user)
                 }
 
-                console.log(users)
+                console.log(users, users.length)
 
                 for(let i = 0; i < users.length; i++) {
-                    console.log(users[i])
                     if(users[i].userData.email === email.current.value){
-                        currentUser = users[i]
-                    }
-                }
-
-                if(currentUser != null){
-                    if(currentUser.userData.password != password.current.value){
                         email.current.value = ""
-                        password.current.value = ""
-                        email.current.placeholder = "Wrong email or password"
+                        email.current.placeholder = "Email already in use"
                         email.current.style.border = "2px solid red"
-                        password.current.placeholder = "Wrong email or password"
-                        password.current.style.border = "2px solid red"
                     }
-                    else{
-                        let userId = currentUser.userData.userId
-                        const redirect = `/user/${authToken}/${userId}`
-                        router.push(redirect)
-                    }
-                }
-                else{
-                    email.current.value = ""
-                    email.current.placeholder = "No account with this email"
-                    email.current.style.border = "2px solid red"
                 }
             })
+
+            let authToken = makeToken(20);
+
+            let userId = makeToken(20)
+
+            const redirect = `/user/${authToken}/${userId}`
+
+            let data = {
+                userId: userId,
+                email: email.current.value,
+                password: password.current.value,
+            }
+
+            fetch("https://theonedush-default-rtdb.europe-west1.firebasedatabase.app/users.json", 
+            {
+                method: "POST",
+                body: JSON.stringify(data),
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            })
+
+            router.push(redirect)
+            
         }
 
 
     }
     return(
         <div className={styles.container}>
-            <UniHead title="Dush Login Page"></UniHead>
+            <UniHead title="Dush Registration Page"></UniHead>
             <form onSubmit={checkSubmit}>
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
                 </svg>
                 <div>
                     <label htmlFor="email">Email</label>
@@ -136,7 +137,7 @@ export default function LoginPage(){
             </form>
             <div className={styles.containerAbsolute}>
                 <div className={styles.registrate}>
-                    <Button text="Registrate here!" link="/registration"></Button>
+                    <Button text="Login here!" link="/login"></Button>
                 </div>
             </div>
         </div>

@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "ACgBA,AAAA,KAAK,CAAA;EACD,KAAK,EARI,OAAO;CASnB;;AACD,AAAA,KAAK,CAAA;EACD,KAAK,EATI,OAAO;CAUnB;;ADjBD,AAAA,UAAU,CAAA;ECHN,OAAO,EAAE,IAAI;EACb,eAAe,EAAE,MAAM;EACvB,WAAW,EAAE,MAAM;EACnB,KAAK,EAAE,IAAI;CDEd",
+    "sources": [
+        "style.module.scss",
+        "../uniform.scss"
+    ],
+    "names": [],
+    "file": "style.module.css"
+}

@@ -1,3 +1,11 @@
+.dush {
+  color: #00ff15;
+}
+
+.comp {
+  color: #FF00EA;
+}
+
 .containerDiff {
   display: -webkit-box;
   display: -ms-flexbox;
